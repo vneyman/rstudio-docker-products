@@ -2,12 +2,12 @@ FROM product-base-pro AS build
 LABEL maintainer="Posit Docker <docker@posit.co>"
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG R_VERSION=4.4.0
-ARG R_VERSION_ALT=4.3.3
-ARG PYTHON_VERSION=3.9.17
-ARG PYTHON_VERSION_ALT=3.8.17
-ARG PYTHON_VERSION_JUPYTER=3.8.17
-ARG JUPYTERLAB_VERSION=3.6.7
+ARG R_VERSION=4.5.1
+ARG R_VERSION_ALT=4.3.2
+ARG PYTHON_VERSION=3.13.5
+ARG PYTHON_VERSION_ALT=3.11.12
+ARG PYTHON_VERSION_JUPYTER=3.13.5
+ARG JUPYTERLAB_VERSION=3.11.12
 ARG RSW_VERSION=2025.09.0+387.pro2
 ARG RSW_NAME=rstudio-workbench
 ARG RSW_DOWNLOAD_URL=https://download2.rstudio.org/server/jammy/amd64
@@ -108,6 +108,8 @@ RUN mkdir -p /var/lib/rstudio-server/monitor/log && \
 
 EXPOSE 8787/tcp
 EXPOSE 5559/tcp
+
+COPY rstudio-server.lic /var/lib/rstudio-server
 
 ENTRYPOINT []
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]

@@ -8,8 +8,10 @@ services:
       RSW_LICENSE: ${RSW_LICENSE}
       LICENSE_SERVER: ${RSW_LICENSE_SERVER}
     ports:
-      - "127.0.0.1:8787:8787"
-      - "127.0.0.1:5559:5559"
+      - "8081:8787"
+      - "8082:5559"
+      # - "127.0.0.1:8787:8787"
+      # - "127.0.0.1:5559:5559"
 
   connect:
     container_name: rstudio-connect
