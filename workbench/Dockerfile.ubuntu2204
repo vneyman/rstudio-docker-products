@@ -53,7 +53,7 @@ RUN apt-get update \
     && RSW_VERSION_URL=$(echo -n "${RSW_VERSION}" | sed 's/+/-/g') \
     && curl -fsSL -o rstudio-workbench.deb "${RSW_DOWNLOAD_URL}/${RSW_NAME}-${RSW_VERSION_URL}-amd64.deb" \
     # Post 7/25 packages
-    && gpg --keyserver hkps://keys.openpgp.org:443 --recv-keys 51C0B5BB19F92D60 \
+    # && gpg --keyserver hkps://keys.openpgp.org:443 --recv-keys 51C0B5BB19F92D60 \
     && dpkg-sig --verify ./rstudio-workbench.deb \
     && apt-get install -yq --no-install-recommends ./rstudio-workbench.deb \
     # a wild hack to ensure that workbench can install _and start_ completely before shutdown

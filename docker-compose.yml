@@ -4,9 +4,9 @@ services:
   workbench:
     container_name: rstudio-workbench
     image: rstudio/rstudio-workbench:${RSW_VERSION:-ubuntu2204}
-    environment:
-      RSW_LICENSE: ${RSW_LICENSE}
-      LICENSE_SERVER: ${RSW_LICENSE_SERVER}
+    # environment:
+    #   RSW_LICENSE: ${RSW_LICENSE}
+    #   LICENSE_SERVER: ${RSW_LICENSE_SERVER}
     ports:
       - "8081:8787"
       - "8082:5559"
