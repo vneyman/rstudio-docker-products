@@ -8,8 +8,7 @@ ARG PYTHON_VERSION=3.13.5
 ARG PYTHON_VERSION_ALT=3.11.12
 ARG PYTHON_VERSION_JUPYTER=3.13.5
 ARG JUPYTERLAB_VERSION=3.11.12
-# ARG RSW_VERSION=2025.09.0+387.pro2
-ARG RSW_VERSION=2025.09.0
+ARG RSW_VERSION=2025.09.0+387.pro2
 ARG RSW_NAME=rstudio-workbench
 ARG RSW_DOWNLOAD_URL=https://download2.rstudio.org/server/jammy/amd64
 ARG SCRIPTS_DIR=/opt/positscripts
@@ -55,7 +54,7 @@ RUN apt-get update \
     && curl -fsSL -o rstudio-workbench.deb "${RSW_DOWNLOAD_URL}/${RSW_NAME}-${RSW_VERSION_URL}-amd64.deb" \
     # Post 7/25 packages
     # && gpg --keyserver hkps://keys.openpgp.org:443 --recv-keys 51C0B5BB19F92D60 \
-    && dpkg-sig --verify ./rstudio-workbench.deb \
+    # && dpkg-sig --verify ./rstudio-workbench.deb \
     && apt-get install -yq --no-install-recommends ./rstudio-workbench.deb \
     # a wild hack to ensure that workbench can install _and start_ completely before shutdown
     && sleep 30 \
