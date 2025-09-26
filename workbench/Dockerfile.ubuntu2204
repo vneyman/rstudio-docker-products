@@ -96,8 +96,8 @@ RUN /opt/python/"${PYTHON_VERSION_JUPYTER}"/bin/python -m venv /opt/python/jupyt
     && /opt/python/${PYTHON_VERSION_ALT}/bin/python -m ipykernel install --name py${PYTHON_VERSION_ALT} --display-name "Python ${PYTHON_VERSION_ALT}" \
     && /opt/python/jupyter/bin/python -m pip cache purge
 
-RUN curl -fsSL -o /usr/local/bin/wait-for-it.sh https://raw.githubusercontent.com/rstudio/wait-for-it/master/wait-for-it.sh && \
-    chmod +x /usr/local/bin/wait-for-it.sh
+# RUN curl -fsSL -o /usr/local/bin/wait-for-it.sh https://raw.githubusercontent.com/rstudio/wait-for-it/master/wait-for-it.sh && \
+    # chmod +x /usr/local/bin/wait-for-it.sh
 
 COPY --chmod=600 sssd.conf /etc/sssd/sssd.conf
 COPY conf/* /etc/rstudio/
